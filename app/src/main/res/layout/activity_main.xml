@@ -7,36 +7,62 @@
     tools:context="com.example.clase21.MainActivity">
 
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTask"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlAddTask" />
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rlAddTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:layout_margin="10dp"
-        android:background="@android:color/white">
+        <RelativeLayout
+            android:id="@+id/rlAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/white"
+            android:elevation="10dp">
+
+            <EditText
+                android:id="@+id/etTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/btnAddTask"
+                android:hint="añade una tarea" />
+
+            <Button
+                android:id="@+id/btnAddTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Añadir" />
+
+        </RelativeLayout>
+
         <EditText
-            android:id="@+id/etTask"
-            android:layout_width="wrap_content"
+            android:id="@+id/txtData"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="añade una tarea"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/btnAddTask"
-            />
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/btnAddTask"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/txtData2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="Añadir"/>
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
-    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTask"
+            android:layout_width="match_parent"
+            android:layout_height="614dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </RelativeLayout>

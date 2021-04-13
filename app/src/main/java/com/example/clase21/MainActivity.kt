@@ -14,6 +14,9 @@ import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
     internal lateinit var etTask: EditText
+    internal lateinit var etData: EditText
+    internal lateinit var etData2: EditText
+
     internal lateinit var btnAddTask: Button
     internal lateinit var recyclerView: RecyclerView
     internal lateinit var tasks: MutableList<TaskEntity>
@@ -23,18 +26,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         tasks = mutableListOf()
-        tasks = mutableListOf(TaskEntity(name="Inicio",isDone = false))
+        //tasks = mutableListOf(TaskEntity(name="Inicio",isDone = false),TaskEntity(name="Inicio",isDone = false))
 
         btnAddTask = findViewById(R.id.btnAddTask) as Button
         etTask = findViewById(R.id.etTask) as EditText
+        etData = findViewById(R.id.txtData) as EditText
+        etData2 = findViewById(R.id.txtData2) as EditText
+
 
         //deleteAllTasks()
-        //getTasks()
+        getTasks()
+        //etData2.setText(tasks.toString())
         setUpRecyclerView(tasks)
 
         btnAddTask.setOnClickListener {
             addTask(TaskEntity(name = etTask.text.toString()))
-            //etTask.setText(tasks.count().toString());
         }
     }
 
@@ -81,7 +87,9 @@ class MainActivity : AppCompatActivity() {
     fun getTasks() {
         doAsync {
             tasks = MyTaskApp.database.taskDao().getAllTasks()
+            etData.setText(tasks.toString())
         }
+        etData2.setText(tasks.toString())
     }
 
     fun updateTask(task: TaskEntity) {
